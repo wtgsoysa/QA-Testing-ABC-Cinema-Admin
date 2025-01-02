@@ -22,7 +22,7 @@ public class LoginTest extends TestBase {
         loginPage.enterPassword("ABCAdmin123");
         loginPage.clickLogin();
 
-        System.out.println("\n------------------------|| ABC_CINEMA_ADMIN_PANEL_TEST || -----------------------\n");
+        System.out.println("\n------------------------|| ABC_CINEMA_ADMIN_PANEL_LOGIN_TEST || -----------------------\n");
         System.out.println("----------------TC 001----------------\n");
         System.out.println("ADMIN AUTHENTICATION TEST CASE : \n");
 
@@ -62,6 +62,7 @@ public class LoginTest extends TestBase {
             System.out.println("\t + Invalid credentials test case: PASS\n\n");
         }
     }
+
 
     @AfterMethod
     public void tearDown() {
