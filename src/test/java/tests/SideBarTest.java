@@ -49,7 +49,7 @@ public class SideBarTest extends TestBase {
         System.out.println("----------------TC 002----------------\n");
         System.out.println("SIDE BAR USER MANAGEMENT TEST CASES : \n");
 
-        sideBarTest.clickMovieManagement();
+        sideBarTest.clickUserManagement();
 
         String expectedText = "User Management";
         String actualText = sideBarTest.getTextUserManagementHeading();
@@ -69,10 +69,10 @@ public class SideBarTest extends TestBase {
         System.out.println("----------------TC 003----------------\n");
         System.out.println("SIDE BAR TICKET MANAGEMENT TEST CASES : \n");
 
-        sideBarTest.clickMovieManagement();
+        sideBarTest.clickTicketManagement();
 
         String expectedText = "Ticket Management";
-        String actualText = sideBarTest.getTextUserManagementHeading();
+        String actualText = sideBarTest.getTextTicketManagementHeading();
 
         if (expectedText.equals(actualText)) {
             System.out.println("\t + User Management heading is correct");
@@ -82,6 +82,49 @@ public class SideBarTest extends TestBase {
             System.out.println("\t + Verify User Management Side Bar: Fail\n\n");
         }
     }
+
+    @Test(priority = 4)
+    public void clickOnReviewManagement() {
+        System.out.println("\n------------------------|| ABC_CINEMA_ADMIN_PANEL_SIDEBAR_TEST || -----------------------\n");
+        System.out.println("----------------TC 004----------------\n");
+        System.out.println("SIDE BAR REVIEW MANAGEMENT TEST CASES : \n");
+
+        sideBarTest.clickReviewManagement();
+
+        String expectedText = "Review Management";
+        String actualText = sideBarTest.getTextReviewManagementHeading();
+
+        if (expectedText.equals(actualText)) {
+            System.out.println("\t + Review Management heading is correct");
+            System.out.println("\t + Verify Review Management Side Bar: PASS\n\n");
+        } else {
+            System.out.println("\t + Review Management heading is incorrect");
+            System.out.println("\t + Verify Review Management Side Bar: Fail\n\n");
+        }
+    }
+
+    @Test(priority = 5)
+    public void clickOnLogout() {
+        System.out.println("\n------------------------|| ABC_CINEMA_ADMIN_PANEL_SIDEBAR_TEST || -----------------------\n");
+        System.out.println("----------------TC 005----------------\n");
+        System.out.println("SIDE BAR LOGOUT TEST CASES : \n");
+
+        sideBarTest.clickLogout();
+
+        String expectedText = "Login as Admin";
+        String actualText = sideBarTest.getTextLogoutHeading();
+
+        if (expectedText.equals(actualText)) {
+            System.out.println("\t + Logout heading is correct");
+            System.out.println("\t + Verify Logout Side Bar: PASS\n\n");
+        } else {
+            System.out.println("\t + Logout heading is incorrect");
+            System.out.println("\t + Verify Logout Side Bar: Fail\n\n");
+        }
+    }
+
+
+
 
 }
 
