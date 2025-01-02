@@ -63,6 +63,26 @@ public class SideBarTest extends TestBase {
         }
     }
 
+    @Test(priority = 3)
+    public void clickOnTicketManagement() {
+        System.out.println("\n------------------------|| ABC_CINEMA_ADMIN_PANEL_SIDEBAR_TEST || -----------------------\n");
+        System.out.println("----------------TC 003----------------\n");
+        System.out.println("SIDE BAR TICKET MANAGEMENT TEST CASES : \n");
+
+        sideBarTest.clickMovieManagement();
+
+        String expectedText = "Ticket Management";
+        String actualText = sideBarTest.getTextUserManagementHeading();
+
+        if (expectedText.equals(actualText)) {
+            System.out.println("\t + User Management heading is correct");
+            System.out.println("\t + Verify User Management Side Bar: PASS\n\n");
+        } else {
+            System.out.println("\t + User Management heading is incorrect");
+            System.out.println("\t + Verify User Management Side Bar: Fail\n\n");
+        }
+    }
+
 }
 
 
