@@ -12,6 +12,7 @@ public class SideBar {
     private By movieManagement = By.xpath("/html/body/div[1]/aside/nav/ul/li[1]/a");
     private By movieManagementHeading = By.xpath("/html/body/div[1]/main/header/h2");
     private By userManagement = By.xpath("/html/body/div[1]/aside/nav/ul/li[2]/a");
+    private By userManagementHeading = By.xpath("/html/body/div[1]/main/header/h2");
     private By ticketManagement = By.xpath("/html/body/div[1]/aside/nav/ul/li[3]/a");
     private By reviewManagement = By.xpath("/html/body/div[1]/aside/nav/ul/li[4]/a");
     private By logoutBtn = By.xpath("/html/body/div[1]/aside/nav/ul/li[5]/a");
@@ -28,6 +29,14 @@ public class SideBar {
     public String getTextMovieManagementHeading() {
 
         return driver.findElement(movieManagementHeading).getText();
+    }
+
+    public void clickUserManagement() {
+        driver.findElement(userManagement).click();
+    }
+
+    public String getTextUserManagementHeading() {
+        return driver.findElement(userManagementHeading).getText();
     }
 
 
