@@ -105,7 +105,7 @@ public class AddMovieTest extends TestBase {
 
 
         if (expectedMovieTitle01.equals(actualMovieTitle01)) {
-            System.out.println("\t + Search Movie 01 Successfully Retrieve from API -->");
+            System.out.println("\t + Search Movie Successfully Retrieve from API -->");
             System.out.println("\t + " + actualMovieTitle01 + " Test Passed");
 
             System.out.println("\t + Movie Data : \n" );
@@ -146,9 +146,82 @@ public class AddMovieTest extends TestBase {
 
 
         } else {
-            System.out.println("\t + Search Movie 01 Unsuccessfully Retrieve from API\n\n");
+            System.out.println("\t + Search Movie Unsuccessfully Retrieve from API\n\n");
             System.out.println("\t + " + actualMovieTitle01 + " Test Failed");
         }
+
+        //Remove the search movie
+        addMoviePage.clickSearchMovieBtn();
+
+        //Search by Movie Title --> Forgotten
+        addMoviePage.searchMovieTitle("සුහද කොකා");
+        addMoviePage.clickSearchMovieBtn();
+
+        System.out.println("\n\n Search Movie 03 : සුහද කොකා (Sinhala Language) / Suhada Koka : \n");
+
+        String expectedMovieTitle02 = "Suhada Koka";
+        String actualMovieTitle02 = addMoviePage.getMovieTitle01();
+
+        String expectedMovieRuntime02 = "122 minutes";
+        String actualMovieRuntime02 = addMoviePage.getRuntime();
+
+        String expectedMovieImdb02 = "9.0";
+        String actualMovieImdb02 = addMoviePage.getImdb();
+
+        String expectedMovieDescription02 = "The film starts with a release of peoples' vote of government election, where Rajamanthri (Vijaya) lost his seat and crying with his allies. However, his secretary Sumanasiri (Rodney) revealed that the winning member has been hospitalized after hearing the shocking news of that he won the election of the seat. Rajamanthri and crew went to the hospital and finally the winning member died and Rajamanthri won the seat. After winning the seat, he started to celebrate the win, but his fellow ministers (Priyantha and Jayasiri) started to make actions against him. However, with many funny incidents, Rajamanthri pass all the battles with the help of his allies. Meanwhile, Liyana Mahaththaya (Lal), clark (Mihira) and Kalu mudalali (Giriraj) proposed an Awurudu Ulela to impress Chief minister Narendrasinghe (Sathischandra).";
+        String actualMovieDescription02 = addMoviePage.getDescription();
+
+        String expectedMovieGenres02 = "Comedy";
+        String actualMovieGenres02 = addMoviePage.getGenres();
+
+
+
+        if (expectedMovieTitle02.equals(actualMovieTitle02)) {
+            System.out.println("\t + Search Movie Successfully Retrieve from API -->");
+            System.out.println("\t + " + actualMovieTitle02 + " Test Passed");
+
+            System.out.println("\t + Movie Data : \n" );
+            System.out.println("\t + " + actualMovieRuntime02);
+            System.out.println("\t + " + actualMovieImdb02);
+            System.out.println("\t + " + actualMovieDescription02);
+            System.out.println("\t + " + actualMovieGenres02);
+
+            if(expectedMovieRuntime02.equals(actualMovieRuntime02)) {
+                System.out.println("\t + Search Movie Runtime Successfully");
+
+                if(expectedMovieImdb02.equals(actualMovieImdb02)) {
+                    System.out.println("\t + Search Movie Imdb Successfully");
+
+                    if(expectedMovieDescription02.equals(actualMovieDescription02)) {
+                        System.out.println("\t + Search Movie Description Successfully");
+
+                        if(expectedMovieGenres02.equals(actualMovieGenres02)) {
+                            System.out.println("\t + Search Movie Genres Successfully");
+                        }
+                        else{
+                            System.out.println("\t + Search Movie Genres Unsuccessfully");
+                        }
+                    }
+                    else{
+                        System.out.println("\t + Search Movie Description Unsuccessfully");
+                    }
+                }
+                else {
+                    System.out.println("\t + Search Movie Imdb Unsuccessfully");
+                }
+            }
+            else {
+                System.out.println("\t + Search Movie Runtime Unsuccessfully");
+            }
+
+
+
+
+        } else {
+            System.out.println("\t + Search Movie Unsuccessfully Retrieve from API\n\n");
+            System.out.println("\t + " + actualMovieTitle02 + " Test Failed");
+        }
+
 
 
 
