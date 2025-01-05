@@ -54,12 +54,30 @@ public class AddMovieTest extends TestBase {
         String actualText2 = addMoviePage.getAddMovieTitle();
         if (expectedText2.equals(actualText2)) {
             System.out.println("\t ------->  Navigate Add Movie Page Successfully\n\n");
-        }
-        else{
+        } else {
             System.out.println("\t ------->  Navigate Add Movie Page Unsuccessfully\n\n");
         }
 
+        //Search by Movie Title --> The Wild Robot
+        addMoviePage.searchMovieTitle("The Wild Robot");
+        addMoviePage.clickSearchMovieBtn();
 
-    }
+        System.out.println("Search Movie 01 : The Wild Robot (English Language): \n");
+
+        String expectedMovieTitle = "The Wild Robot";
+        String actualMovieTitle = addMoviePage.getMovieTitle01();
+
+        if (expectedMovieTitle.equals(actualMovieTitle)) {
+            System.out.println("\t + Search Movie 01 Successfully Retrieve from API -->");
+            System.out.println("\t + "+ actualMovieTitle + " Test Passed");
+        }
+        else{
+                System.out.println("\t + Search Movie 01 Unsuccessfully Retrieve from API\n\n");
+                System.out.println("\t + "+ actualMovieTitle + " Test Failed");
+            }
+
+
+        }
+
 
 }
