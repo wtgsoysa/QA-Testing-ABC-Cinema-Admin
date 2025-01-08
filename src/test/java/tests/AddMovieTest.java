@@ -228,6 +228,45 @@ public class AddMovieTest extends TestBase {
 
     }
 
+    @Test(priority = 2)
+    public void publishMovie() {
+
+
+        System.out.println("----------------TC 002----------------\n");
+        System.out.println("PUBLISH MOVIE TEST CASES : \n");
+
+        addMoviePage.clickAddMovieBtn();
+
+        String expectedText2 = "Add Your Movie Details";
+        String actualText2 = addMoviePage.getAddMovieTitle();
+        if (expectedText2.equals(actualText2)) {
+            System.out.println("\t ------->  Navigate Add Movie Page Successfully\n\n");
+        } else {
+            System.out.println("\t ------->  Navigate Add Movie Page Unsuccessfully\n\n");
+        }
+
+        //Search by Movie Title --> The Wild Robot
+        addMoviePage.searchMovieTitle("The Green Mile");
+        addMoviePage.clickSearchMovieBtn();
+
+        System.out.println("Search Movie 01 : The Green Mile (English Language): \n");
+
+        String expectedMovieTitle = "The Green Mile";
+        String actualMovieTitle = addMoviePage.getMovieTitle01();
+
+        if (expectedMovieTitle.equals(actualMovieTitle)) {
+            System.out.println("\t + Search Movie 01 Successfully Retrieve from API -->");
+            System.out.println("\t + " + actualMovieTitle + " Test Passed");
+        } else {
+            System.out.println("\t + Search Movie 01 Unsuccessfully Retrieve from API\n\n");
+            System.out.println("\t + " + actualMovieTitle + " Test Failed");
+        }
+
+    }
+
+
+
+
 
 
 
