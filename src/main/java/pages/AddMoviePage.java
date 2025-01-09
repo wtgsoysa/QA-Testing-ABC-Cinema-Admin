@@ -2,6 +2,11 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
+
+import java.util.List;
 
 public class AddMoviePage {
     WebDriver driver;
@@ -21,6 +26,26 @@ public class AddMoviePage {
     private By imdb = By.xpath("/html/body/main/div[2]/div/div[2]/div[1]/div[5]/p");
     private By description = By.xpath("/html/body/main/div[2]/div/div[2]/p[2]");
     private By genres = By.xpath("/html/body/main/div[2]/div/div[2]/p[4]");
+
+    //DropDown
+
+    // Dropdown Menu Validation
+    private By dropdownMenu = By.xpath("//*[@id=\"category\"]"); // Replace "dropdown-id" with the actual ID or locator of your dropdown menu.
+
+    public List<String> getDropdownOptions() {
+        Select dropdown = new Select(driver.findElement(dropdownMenu));
+        List<WebElement> options = dropdown.getOptions();
+        return options.stream().map(WebElement::getText).toList();
+    }
+
+    public boolean validateDropdownOptions(List<String> expectedOptions) {
+        List<String> actualOptions = getDropdownOptions();
+        return actualOptions.containsAll(expectedOptions) && actualOptions.size() == expectedOptions.size();
+    }
+
+
+
+
 
 
     //Get the different types of movies
@@ -71,6 +96,13 @@ public class AddMoviePage {
     public String getGenres() {
         return driver.findElement(genres).getText();
     }
+
+    //Dropdown Menu Test
+
+
+
+
+
 
 
 }

@@ -7,6 +7,8 @@ import pages.LoginPage;
 import pages.SideBar;
 import testBase.TestBase;
 
+import java.util.List;
+
 public class AddMovieTest extends TestBase {
 
     LoginPage loginPage;
@@ -229,7 +231,7 @@ public class AddMovieTest extends TestBase {
     }
 
     @Test(priority = 2)
-    public void publishMovie() {
+    public void validateDropdownOptions(){
 
 
         System.out.println("----------------TC 002----------------\n");
@@ -260,6 +262,21 @@ public class AddMovieTest extends TestBase {
         } else {
             System.out.println("\t + Search Movie 01 Unsuccessfully Retrieve from API\n\n");
             System.out.println("\t + " + actualMovieTitle + " Test Failed");
+        }
+
+        System.out.println("\n------------------------|| DROPDOWN OPTIONS VALIDATION || -----------------------\n");
+
+        // Define the expected options
+        List<String> expectedOptions = List.of("Screening Now Home", "Coming Soon Home", "Screening Now Main", "Coming Soon Main"); // Replace with actual options.
+
+        // Validate dropdown options
+        boolean isValid = addMoviePage.validateDropdownOptions(expectedOptions);
+
+        if (isValid) {
+            System.out.println("Dropdown options validated successfully: " + expectedOptions);
+        } else {
+            System.out.println("Dropdown options validation failed. Expected: " + expectedOptions +
+                    " | Actual: " + addMoviePage.getDropdownOptions());
         }
 
     }
