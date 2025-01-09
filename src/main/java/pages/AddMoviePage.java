@@ -31,17 +31,20 @@ public class AddMoviePage {
 
     // Dropdown Menu Validation
     private By dropdownMenu = By.xpath("//*[@id=\"category\"]"); // Replace "dropdown-id" with the actual ID or locator of your dropdown menu.
+    private By screenNowHome = By.xpath("//*[@id=\"category\"]/option[1]");
+    private By comingSoonHome = By.xpath("//*[@id=\"category\"]/option[2]");
+    private By screenNowMain = By.xpath("//*[@id=\"category\"]/option[3]");
+    private By comingSoonMain = By.xpath("//*[@id=\"category\"]/option[4]");
 
-    public List<String> getDropdownOptions() {
-        Select dropdown = new Select(driver.findElement(dropdownMenu));
-        List<WebElement> options = dropdown.getOptions();
-        return options.stream().map(WebElement::getText).toList();
-    }
+    private By publishMovieBtn = By.xpath("/html/body/main/div[3]/form/div/button");
 
-    public boolean validateDropdownOptions(List<String> expectedOptions) {
-        List<String> actualOptions = getDropdownOptions();
-        return actualOptions.containsAll(expectedOptions) && actualOptions.size() == expectedOptions.size();
-    }
+    //Publish Movies
+    private By movieTitle = By.xpath("/html/body/div[1]/main/div/div[15]/h3");
+    private By movieStatus = By.xpath("/html/body/div[1]/main/div/div[15]/p");
+
+
+
+
 
 
 
@@ -98,6 +101,62 @@ public class AddMoviePage {
     }
 
     //Dropdown Menu Test
+
+    public List<String> getDropdownOptions() {
+        Select dropdown = new Select(driver.findElement(dropdownMenu));
+        List<WebElement> options = dropdown.getOptions();
+        return options.stream().map(WebElement::getText).toList();
+    }
+
+    public boolean validateDropdownOptions(List<String> expectedOptions) {
+        List<String> actualOptions = getDropdownOptions();
+        return actualOptions.containsAll(expectedOptions) && actualOptions.size() == expectedOptions.size();
+    }
+
+    public List<String> selectCategories() {
+        Select dropdown = new Select(driver.findElement(dropdownMenu));
+        List<WebElement> options = dropdown.getOptions();
+        return options.stream().map(WebElement::getText).toList();
+    }
+
+    public void clickDropdownMenu() {
+        driver.findElement(dropdownMenu).click();
+    }
+
+    public void clickScreenNowHome() {
+
+        driver.findElement(screenNowHome).click();
+
+    }
+
+    public void clickComingSoonHome() {
+
+        driver.findElement(comingSoonHome).click();
+    }
+
+    public void clickComingSoonMain() {
+
+        driver.findElement(comingSoonMain).click();
+    }
+
+    public void clickScreenNowMain() {
+
+        driver.findElement(screenNowMain).click();
+    }
+
+    public void clickPublishMovieBtn() {
+        driver.findElement(publishMovieBtn).click();
+    }
+
+    //Publish Movies
+
+    public String movieTitle() {
+        return driver.findElement(movieTitle).getText();
+    }
+
+    public String movieStatus() {
+        return driver.findElement(movieStatus).getText();
+    }
 
 
 

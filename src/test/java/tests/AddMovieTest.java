@@ -235,7 +235,7 @@ public class AddMovieTest extends TestBase {
 
 
         System.out.println("----------------TC 002----------------\n");
-        System.out.println("PUBLISH MOVIE TEST CASES : \n");
+        System.out.println("VALIDATE DROPDOWN TEST CASES : \n");
 
         addMoviePage.clickAddMovieBtn();
 
@@ -280,6 +280,48 @@ public class AddMovieTest extends TestBase {
         }
 
     }
+
+    @Test(priority = 3)
+    public void publishScreenNowHome(){
+        System.out.println("----------------TC 003----------------\n");
+        System.out.println("PUBLISH MOVIE TEST CASES : \n");
+
+        addMoviePage.clickAddMovieBtn();
+
+
+        //Search by Movie Title --> The Wild Robot
+        addMoviePage.searchMovieTitle("The Green Mile");
+        addMoviePage.clickSearchMovieBtn();
+
+        //Publish Movie into Screen Now Home
+        addMoviePage.clickDropdownMenu();
+        addMoviePage.clickScreenNowHome();
+        addMoviePage.clickPublishMovieBtn();
+
+        sideBarTest.clickMovieManagement();
+
+        String expectedPublishMovieTitle = "The Green Mile";
+        String actualPublishMovieTitle = addMoviePage.movieTitle();
+
+        String expectedMovieStatus = "Published (Screening Now Home)";
+        String actualMovieStatus = addMoviePage.movieStatus();
+
+        if (expectedPublishMovieTitle.equals(actualPublishMovieTitle)) {
+            System.out.println("+ Publish Movie Successfully Show the Movie Management Page ");
+
+            if(expectedMovieStatus.equals(actualMovieStatus)) {
+                System.out.println("\t + " + actualMovieStatus + " Test Passed");
+            }
+            else{
+                System.out.println("\t + " + actualMovieStatus + " Test Failed");
+            }
+        }
+        else{
+            System.out.println("+ Publish Movie Unsuccessfully Show the Movie Management Page ");
+        }
+
+    }
+
 
 
 
