@@ -38,9 +38,23 @@ public class AddMoviePage {
 
     private By publishMovieBtn = By.xpath("/html/body/main/div[3]/form/div/button");
 
-    //Publish Movies
-    private By movieTitle = By.xpath("/html/body/div[1]/main/div/div[15]/h3");
-    private By movieStatus = By.xpath("/html/body/div[1]/main/div/div[15]/p");
+    //Publish Movies Screening Now Home
+    private By movieTitleSNH = By.xpath("/html/body/div[1]/main/div/div[15]/h3");
+    private By movieStatusSNH = By.xpath("/html/body/div[1]/main/div/div[15]/p");
+
+    //Publish Movies Coming Soon Home
+    private By movieTitleCSH = By.xpath("/html/body/div[1]/main/div/div[16]/h3");
+    private By movieStatusCSH = By.xpath("/html/body/div[1]/main/div/div[16]/p");
+
+    //Publish Movies Screening Now Main
+    private By movieTitleSNM = By.xpath("/html/body/div[1]/main/div/div[17]/h3");
+    private By movieStatusSNM = By.xpath("/html/body/div[1]/main/div/div[17]/p");
+
+    //Publish Movies Coming Soon Main
+    private By movieTitleCSM = By.xpath("/html/body/div[1]/main/div/div[18]/h3");
+    private By movieStatusCSM = By.xpath("/html/body/div[1]/main/div/div[18]/p");
+
+
 
 
 
@@ -148,14 +162,34 @@ public class AddMoviePage {
         driver.findElement(publishMovieBtn).click();
     }
 
-    //Publish Movies
+    //Publish Movies Screening Now Home
 
-    public String movieTitle() {
-        return driver.findElement(movieTitle).getText();
+    public String movieTitleSNH() {
+        return driver.findElement(movieTitleSNH).getText();
     }
 
-    public String movieStatus() {
-        return driver.findElement(movieStatus).getText();
+    public String movieStatusSNH() {
+        return driver.findElement(movieStatusSNH).getText();
+    }
+
+    //Publish Movies Coming Soon Home
+
+    public String movieTitleCSH() {
+        return driver.findElement(movieTitleCSH).getText();
+    }
+
+    public String movieStatusCSH() {
+        return driver.findElement(movieStatusCSH).getText();
+    }
+
+    //Publish Movies Screening Now Main
+
+    public String movieTitleSNM() {
+        return driver.findElement(movieTitleSNM).getText();
+    }
+
+    public String movieStatusSNM() {
+        return driver.findElement(movieStatusSNM).getText();
     }
 
 

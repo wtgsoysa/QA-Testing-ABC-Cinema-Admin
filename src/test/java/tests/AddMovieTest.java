@@ -283,7 +283,7 @@ public class AddMovieTest extends TestBase {
 
     @Test(priority = 3)
     public void publishScreenNowHome(){
-        System.out.println("----------------TC 003----------------\n");
+        System.out.println("\n\n----------------TC 003----------------\n");
         System.out.println("PUBLISH MOVIE TEST CASES : \n");
 
         addMoviePage.clickAddMovieBtn();
@@ -301,19 +301,19 @@ public class AddMovieTest extends TestBase {
         sideBarTest.clickMovieManagement();
 
         String expectedPublishMovieTitle = "The Green Mile";
-        String actualPublishMovieTitle = addMoviePage.movieTitle();
+        String actualPublishMovieTitle = addMoviePage.movieTitleSNH();
 
         String expectedMovieStatus = "Published (Screening Now Home)";
-        String actualMovieStatus = addMoviePage.movieStatus();
+        String actualMovieStatus = addMoviePage.movieStatusSNH();
 
         if (expectedPublishMovieTitle.equals(actualPublishMovieTitle)) {
             System.out.println("+ Publish Movie Successfully Show the Movie Management Page ");
 
             if(expectedMovieStatus.equals(actualMovieStatus)) {
-                System.out.println("\t + " + actualMovieStatus + " Test Passed");
+                System.out.println("+ " + actualMovieStatus + " Test Passed");
             }
             else{
-                System.out.println("\t + " + actualMovieStatus + " Test Failed");
+                System.out.println("+ " + actualMovieStatus + " Test Failed");
             }
         }
         else{
@@ -321,6 +321,48 @@ public class AddMovieTest extends TestBase {
         }
 
     }
+
+    @Test(priority = 4)
+    public void publishComingSoonHome(){
+        System.out.println("\n\n----------------TC 004----------------\n");
+        System.out.println("PUBLISH MOVIE TEST CASES : \n");
+
+        addMoviePage.clickAddMovieBtn();
+
+
+        //Search by Movie Title --> The Wild Robot
+        addMoviePage.searchMovieTitle("The Green Mile");
+        addMoviePage.clickSearchMovieBtn();
+
+        //Publish Movie into Screen Now Home
+        addMoviePage.clickDropdownMenu();
+        addMoviePage.clickComingSoonHome();
+        addMoviePage.clickPublishMovieBtn();
+
+        sideBarTest.clickMovieManagement();
+
+        String expectedPublishMovieTitle = "The Green Mile";
+        String actualPublishMovieTitle = addMoviePage.movieTitleCSH();
+
+        String expectedMovieStatus = "Published (Coming Soon Home)";
+        String actualMovieStatus = addMoviePage.movieStatusCSH();
+
+        if (expectedPublishMovieTitle.equals(actualPublishMovieTitle)) {
+            System.out.println("+ Publish Movie Successfully Show the Movie Management Page ");
+
+            if(expectedMovieStatus.equals(actualMovieStatus)) {
+                System.out.println("+ " + actualMovieStatus + " Test Passed");
+            }
+            else{
+                System.out.println("+ " + actualMovieStatus + " Test Failed");
+            }
+        }
+        else{
+            System.out.println("+ Publish Movie Unsuccessfully Show the Movie Management Page ");
+        }
+
+    }
+
 
 
 
