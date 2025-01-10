@@ -404,6 +404,47 @@ public class AddMovieTest extends TestBase {
 
     }
 
+    @Test(priority = 6)
+    public void publishComingSoonMain(){
+        System.out.println("\n\n----------------TC 006 ----------------\n");
+        System.out.println("PUBLISH MOVIE TEST CASES : \n");
+
+        addMoviePage.clickAddMovieBtn();
+
+
+        //Search by Movie Title --> The Wild Robot
+        addMoviePage.searchMovieTitle("The Green Mile");
+        addMoviePage.clickSearchMovieBtn();
+
+        //Publish Movie into Screen Now Home
+        addMoviePage.clickDropdownMenu();
+        addMoviePage.clickComingSoonMain();
+        addMoviePage.clickPublishMovieBtn();
+
+        sideBarTest.clickMovieManagement();
+
+        String expectedPublishMovieTitle = "The Green Mile";
+        String actualPublishMovieTitle = addMoviePage.movieTitleCSM();
+
+        String expectedMovieStatus = "Published (Screening Now Main)";
+        String actualMovieStatus = addMoviePage.movieStatusCSM();
+
+        if (expectedPublishMovieTitle.equals(actualPublishMovieTitle)) {
+            System.out.println("+ Publish Movie Successfully Show the Movie Management Page ");
+
+            if(expectedMovieStatus.equals(actualMovieStatus)) {
+                System.out.println("+ " + actualMovieStatus + " Test Passed");
+            }
+            else{
+                System.out.println("+ " + actualMovieStatus + " Test Failed");
+            }
+        }
+        else{
+            System.out.println("+ Publish Movie Unsuccessfully Show the Movie Management Page ");
+        }
+
+    }
+
 
 
 

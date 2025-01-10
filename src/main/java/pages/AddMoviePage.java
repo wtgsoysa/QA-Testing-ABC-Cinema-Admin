@@ -192,6 +192,16 @@ public class AddMoviePage {
         return driver.findElement(movieStatusSNM).getText();
     }
 
+    //Publish Movies Coming Soon Main
+
+    public String movieTitleCSM() {
+        return driver.findElement(movieTitleCSM).getText();
+    }
+
+    public String movieStatusCSM() {
+        return driver.findElement(movieStatusCSM).getText();
+    }
+
 
 
 
