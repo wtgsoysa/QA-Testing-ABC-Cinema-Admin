@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AddMoviePage {
@@ -201,6 +202,25 @@ public class AddMoviePage {
     public String movieStatusCSM() {
         return driver.findElement(movieStatusCSM).getText();
     }
+
+    public void validateDropdownValues() {
+        // Example: validate that the genres dropdown contains expected values
+        List<WebElement> dropdownOptions = driver.findElements(By.cssSelector("your-dropdown-selector"));  // Use appropriate selector
+        for (WebElement option : dropdownOptions) {
+            System.out.println(option.getText());
+        }
+    }
+
+    public List<String> getGenresList() {
+        List<WebElement> dropdownOptions = driver.findElements(By.cssSelector("your-dropdown-selector")); // Use appropriate selector
+        List<String> genres = new ArrayList<>();
+        for (WebElement option : dropdownOptions) {
+            genres.add(option.getText());
+        }
+        return genres;
+    }
+
+
 
 
 

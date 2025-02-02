@@ -1,15 +1,19 @@
 package tests;
 
+import com.aventstack.extentreports.ExtentTest;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.SideBar;
 import testBase.TestBase;
+import utils.ExtentManager;
 
 public class SideBarTest extends TestBase {
     LoginPage loginPage;
     SideBar sideBarTest;
+    ExtentTest test;
 
     @BeforeMethod
     public void setUp() {
@@ -17,120 +21,112 @@ public class SideBarTest extends TestBase {
         sideBarTest = new SideBar(driver);
         loginPage = new LoginPage(driver);
 
-        loginPage.enterUsername("ABCAdmin"); // Correct credentials
+        // Login with valid credentials
+        loginPage.enterUsername("ABCAdmin");
         loginPage.enterPassword("ABCAdmin123");
         loginPage.clickLogin();
-
     }
 
     @Test(priority = 1)
     public void clickOnMovieManagement() {
-
-        System.out.println("\n------------------------|| ABC_CINEMA_ADMIN_PANEL_SIDEBAR_TEST || -----------------------\n");
-        System.out.println("----------------TC 001----------------\n");
-        System.out.println("SIDE BAR MOVIE MANAGEMENT TEST CASES : \n");
+        test = ExtentManager.getInstance().createTest("TC 001 - Movie Management");
 
         sideBarTest.clickMovieManagement();
 
         String expectedText = "Movie Management";
         String actualText = sideBarTest.getTextMovieManagementHeading();
 
+        // Using ExtentReports for logging test results
         if (expectedText.equals(actualText)) {
+            test.pass("Movie Management heading is correct");
             System.out.println("\t + Movie Management heading is correct");
-            System.out.println("\t + Verify Movie Management Side Bar: PASS\n\n");
         } else {
+            test.fail("Movie Management heading is incorrect");
             System.out.println("\t + Movie Management heading is incorrect");
-            System.out.println("\t + Verify Movie Management Side Bar: Fail\n\n");
         }
+
+        Assert.assertEquals(actualText, expectedText, "Movie Management heading mismatch");
     }
+
     @Test(priority = 2)
     public void clickOnUserManagement() {
-        System.out.println("\n------------------------|| ABC_CINEMA_ADMIN_PANEL_SIDEBAR_TEST || -----------------------\n");
-        System.out.println("----------------TC 002----------------\n");
-        System.out.println("SIDE BAR USER MANAGEMENT TEST CASES : \n");
+        test = ExtentManager.getInstance().createTest("TC 002 - User Management");
 
         sideBarTest.clickUserManagement();
 
         String expectedText = "User Management";
         String actualText = sideBarTest.getTextUserManagementHeading();
 
+        // Using ExtentReports for logging test results
         if (expectedText.equals(actualText)) {
-            System.out.println("\t + User Management heading is correct");
-            System.out.println("\t + Verify User Management Side Bar: PASS\n\n");
+            test.pass("User Management heading is correct");
         } else {
-            System.out.println("\t + User Management heading is incorrect");
-            System.out.println("\t + Verify User Management Side Bar: Fail\n\n");
+            test.fail("User Management heading is incorrect");
         }
+
+        Assert.assertEquals(actualText, expectedText, "User Management heading mismatch");
     }
 
     @Test(priority = 3)
     public void clickOnTicketManagement() {
-        System.out.println("\n------------------------|| ABC_CINEMA_ADMIN_PANEL_SIDEBAR_TEST || -----------------------\n");
-        System.out.println("----------------TC 003----------------\n");
-        System.out.println("SIDE BAR TICKET MANAGEMENT TEST CASES : \n");
+        test = ExtentManager.getInstance().createTest("TC 003 - Ticket Management");
 
         sideBarTest.clickTicketManagement();
 
         String expectedText = "Ticket Management";
         String actualText = sideBarTest.getTextTicketManagementHeading();
 
+        // Using ExtentReports for logging test results
         if (expectedText.equals(actualText)) {
-            System.out.println("\t + User Management heading is correct");
-            System.out.println("\t + Verify User Management Side Bar: PASS\n\n");
+            test.pass("Ticket Management heading is correct");
         } else {
-            System.out.println("\t + User Management heading is incorrect");
-            System.out.println("\t + Verify User Management Side Bar: Fail\n\n");
+            test.fail("Ticket Management heading is incorrect");
         }
+
+        Assert.assertEquals(actualText, expectedText, "Ticket Management heading mismatch");
     }
 
     @Test(priority = 4)
     public void clickOnReviewManagement() {
-        System.out.println("\n------------------------|| ABC_CINEMA_ADMIN_PANEL_SIDEBAR_TEST || -----------------------\n");
-        System.out.println("----------------TC 004----------------\n");
-        System.out.println("SIDE BAR REVIEW MANAGEMENT TEST CASES : \n");
+        test = ExtentManager.getInstance().createTest("TC 004 - Review Management");
 
         sideBarTest.clickReviewManagement();
 
         String expectedText = "Review Management";
         String actualText = sideBarTest.getTextReviewManagementHeading();
 
+        // Using ExtentReports for logging test results
         if (expectedText.equals(actualText)) {
-            System.out.println("\t + Review Management heading is correct");
-            System.out.println("\t + Verify Review Management Side Bar: PASS\n\n");
+            test.pass("Review Management heading is correct");
         } else {
-            System.out.println("\t + Review Management heading is incorrect");
-            System.out.println("\t + Verify Review Management Side Bar: Fail\n\n");
+            test.fail("Review Management heading is incorrect");
         }
+
+        Assert.assertEquals(actualText, expectedText, "Review Management heading mismatch");
     }
 
     @Test(priority = 5)
     public void clickOnLogout() {
-        System.out.println("\n------------------------|| ABC_CINEMA_ADMIN_PANEL_SIDEBAR_TEST || -----------------------\n");
-        System.out.println("----------------TC 005----------------\n");
-        System.out.println("SIDE BAR LOGOUT TEST CASES : \n");
+        test = ExtentManager.getInstance().createTest("TC 005 - Logout");
 
         sideBarTest.clickLogout();
 
         String expectedText = "Login as Admin";
         String actualText = sideBarTest.getTextLogoutHeading();
 
+        // Using ExtentReports for logging test results
         if (expectedText.equals(actualText)) {
-            System.out.println("\t + Logout heading is correct");
-            System.out.println("\t + Verify Logout Side Bar: PASS\n\n");
+            test.pass("Logout heading is correct");
         } else {
-            System.out.println("\t + Logout heading is incorrect");
-            System.out.println("\t + Verify Logout Side Bar: Fail\n\n");
+            test.fail("Logout heading is incorrect");
         }
+
+        Assert.assertEquals(actualText, expectedText, "Logout heading mismatch");
     }
 
-
-
-
+    @AfterMethod
+    public void tearDown() {
+        ExtentManager.flushReports();
+        driver.quit();
+    }
 }
-
-
-
-
-
-
-
