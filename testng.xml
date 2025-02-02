@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Suite" parallel="tests">
+    <test name="Test">
+        <classes>
+            <class name="tests.LoginTest"/>
+            <class name="tests.SideBarTest"/>
+            <class name="tests.AddMovieTest"/>
+            <!-- Add all other test classes here -->
+        </classes>
+    </test>
+</suite>
